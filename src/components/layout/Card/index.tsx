@@ -1,7 +1,7 @@
 import "./style.css";
 
 const Card =  (props:any) => {
-    const { titulo, content } = props;
+    const { titulo, children } = props;
     const estilo_card = {
         backgroundColor : props.bgcolor || "red",
         borderColor: props.bgcolor || "red",
@@ -13,7 +13,7 @@ const Card =  (props:any) => {
                 <h1>{titulo}</h1>
             </div>
             <div className="Content">
-                <h1>{content}</h1>
+                <h1>{children}</h1>
             </div>
         </div>
     );

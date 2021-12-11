@@ -1,0 +1,21 @@
+.LoginContainer {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: burlywood;
+    height: 300px;
+}
+
+.LoginContainer .LoginForm {
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    
+    align-items: center;
+    width: 40%;      
+    height: 40%;
+    background-color: white;
+    border: 3px solid black;    
+    border-radius: 10px;
+}
