@@ -1,9 +1,0 @@
-.App {
-    width: 100%;
-}
-
-.App .Cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}

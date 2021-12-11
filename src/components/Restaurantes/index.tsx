@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import restaurantes from '../../mock-data/restaurantes-mock';
 import Card from "../layout/Card";
 import './style.css';
 
-const Restaurantes =  (props: any) => {
+const RestaurantesList =  (props: any) => {
 
     const list_restaurantes = restaurantes.map(restaurante => {
         return (
@@ -16,11 +17,16 @@ const Restaurantes =  (props: any) => {
     });
 
     return (
-        <div  className="RestaurantesContainer">
-            <ul className="RestaurantesList" style={{ listStyle: "none"}}>
-                {list_restaurantes}
-            </ul>
+        <div>
+            <div  className="RestaurantesContainer">
+                <ul className="RestaurantesList" style={{ listStyle: "none"}}>
+                    {list_restaurantes}
+                </ul>
+            </div>
+            <Link to="/login">
+                <button>Sair</button>
+            </Link>
         </div>
     );
 }
-export default Restaurantes;
+export default RestaurantesList;
