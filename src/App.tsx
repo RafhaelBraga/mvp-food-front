@@ -1,5 +1,4 @@
 import NotFound from "./pages/NotFound";
-import './App.css'; 
 import PratosList from "./components/Pratos";
 import RestaurantesList from "./components/Restaurantes";
 import { 
@@ -12,8 +11,7 @@ import { AuthProvider} from "./components/Auth/AuthProvider";
 import RequireAuth from "./components/Auth/RequireAuth";
 
 const App = () => (        
-    <div className="App">  
-        <div className="Cards">
+    <div>  
         <AuthProvider>
             <Router>
                     <Routes>    
@@ -24,8 +22,7 @@ const App = () => (
                         <Route path="*" element={<NotFound />} />
                     </Routes>
             </Router>
-        </AuthProvider>       
-        </div>      
+        </AuthProvider>      
     </div>   
 );
 export default App;

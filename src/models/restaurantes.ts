@@ -1,3 +1,5 @@
+import Pratos from "./pratos";
+
 export default interface Restaurantes {
 	id: number,
 	nome: string,
@@ -5,4 +7,5 @@ export default interface Restaurantes {
 	logradouro: string,
 	numero: number,
 	telefone: number,
+	pratos: Pratos[],
 }

@@ -8,6 +8,10 @@
     flex-direction: column;
     min-width: 300px;
     max-width: 500px;
+    max-height: 300px;
+    min-height: 100px;
+    width: 80%;
+    height: 300px;
 }
 
 .Card .Title {
@@ -23,6 +27,6 @@
     justify-content: center;
     color: black;
     padding: 20px;
-
     flex: 1;
+    text-decoration: none;
 }

@@ -1,3 +1,4 @@
+import { NONAME } from "dns";
 import "./style.css";
 
 const Card =  (props:any) => {
@@ -5,6 +6,7 @@ const Card =  (props:any) => {
     const estilo_card = {
         backgroundColor : props.bgcolor || "red",
         borderColor: props.bgcolor || "red",
+        textDecoration: "none",
     }
 
     return (

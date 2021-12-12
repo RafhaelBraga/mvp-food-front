@@ -1,5 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
-import pratos from '../../mock-data/pratos-mock';
+import { useEffect, useState } from "react";
 import Card from "../layout/Card";
 import Formatter from "../../utils/formatter";
 import './style.css';
@@ -15,9 +14,8 @@ const PratosList =  (props: any) => {
     const [loading, setLoading] = useState(true);     
     const [pratos, setPratos] = useState(pratosinit);
 
-    let rest;
     useEffect (() => {
-        rest = getPratos();
+        getPratos();
         
         setLoading(false);
     })
@@ -37,7 +35,8 @@ const PratosList =  (props: any) => {
         return (
             <li key={prato.id}>
                 <Card titulo = {prato.nome}>
-                    {prato.id} - {prato.descricao} - {Formatter.currencyFormat(prato.preco)}
+                    Descrição: {prato.descricao} <br />
+                    Preço: {Formatter.currencyFormat(prato.preco)}
                 </Card>
             </li> 
         );
@@ -45,14 +44,14 @@ const PratosList =  (props: any) => {
 
     return (
         <div>
-            <Link to="/restaurantes">
-                <button>Voltar</button>
-            </Link>
             <div  className="PratosContainer">
                 <ul className="PratoList" style={{ listStyle: "none"}}>
                     {list_pratos}
                 </ul>
             </div>
+            <Link to="/restaurantes">
+                <button className="SairButton">Voltar</button>
+            </Link>
         </div>
     );
 }
