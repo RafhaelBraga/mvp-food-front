@@ -19,9 +19,16 @@ const PratosList =  (props: any) => {
         
         setLoading(false);
     })
+    const token = localStorage.getItem('token') ? JSON.parse(localStorage.getItem('token')!) : '';
 
     const getPratos = async () => {
-        const response = await axios.get(`http://localhost:8080/mvp/pratos/busca-pratos-por-restaurante/`+restaurante);
+        const response = await axios.get(`http://localhost:8080/mvp/pratos/busca-pratos-por-restaurante/`+restaurante,
+        {                        
+            withCredentials: true,
+            headers: { 
+            'Authorization': token.token, 
+            }
+        });
         setPratos(response.data);
         return response.data;
                      

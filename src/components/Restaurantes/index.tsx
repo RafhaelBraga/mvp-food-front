@@ -21,13 +21,20 @@ const RestaurantesList =  (props: any) => {
         
         setLoading(false);
     })
-
+    const token = localStorage.getItem('token') ? JSON.parse(localStorage.getItem('token')!) : '';
+    
     const getRestaurantes = async () => {
-        const response = await axios.get(`http://localhost:8080/mvp/restaurantes/busca-restaurantes`);
-        console.log(response.data);
+        const response = await axios.get(`http://localhost:8080/mvp/restaurantes/busca-restaurantes`,
+                    {                        
+                        withCredentials: true,
+                        headers: { 
+                        'Authorization': token.token, 
+                        }
+                    });
         setRestaurantes(response.data);
-        return response.data;
-                     
+        console.log(response.data);
+        
+        return response.data;                     
     }
     
     if(loading) {

@@ -9,9 +9,7 @@ const RequireAuth = ({ children }: { children: JSX.Element }) => {
   const { authenticated } = useContext(AuthContext);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    console.log(authenticated);
-    
+  useEffect(() => {    
     if (!authenticated) {
       navigate('/login');     
     }

@@ -14,39 +14,38 @@ const AuthContext = React.createContext<AuthContextType>(null!);
 function AuthProvider ({children} : any) {
 
     const [authenticated, setauthenticated] = useState(false);  
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(true);    
 
     useEffect(() => {
-        const token = localStorage.getItem('token');
-    
-        if (token) {
-          //api.defaults.headers.Authorization = `Bearer ${JSON.parse(token)}`;
+        
+        if (localStorage.getItem('token')) {
           setauthenticated(true);
         }
     
         setLoading(false);
+
       }, []);
 
-    async function handleLogin() {                
+    async function handleLogin(user: string, password: string) {
+        let user_data = {
+            'email': user,
+            'senha': password};
+        let response = await axios.post(`http://localhost:8080/mvp/authenticate`, 
+            user_data,
+            {headers: {}},
+        )
         
-        // await axios.get(`https://pokeapi.co/api/v2/ability/1/`)
-        // .then(res => {
-        //     if(res.status===200) {
-        //         localStorage.setItem('token', res.data);//Json.stringdy(token)
-        //         //api.defaults.headers.Authorization = token;
-        //     } else {
-        //         handleLogout();
-        //     }
-        // })
-        setauthenticated(true);
-        localStorage.setItem('token', 'res.dat');//Json.stringdy(token)
+        if(response.status === 200) {            
+            localStorage.setItem('token', JSON.stringify(response.data));
+            setauthenticated(true);
+        };
+        
         history.push('/restaurantes');
     };
 
     function handleLogout() {
         setauthenticated(false);
         localStorage.removeItem('token');
-        //api.defaults.headers.Authorization = undefined;
         history.push('/login');        
     }
       

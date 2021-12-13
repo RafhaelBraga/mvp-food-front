@@ -1,4 +1,3 @@
-import { NONAME } from "dns";
 import "./style.css";
 
 const Card =  (props:any) => {
